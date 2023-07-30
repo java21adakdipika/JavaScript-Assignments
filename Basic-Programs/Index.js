@@ -73,6 +73,7 @@ function evenOdd(number){
 
 let fxn = prime(9)
 // let fxn = fibonacci(8)
+// let fxn = fibonacci("fgfj")
 // let fxn = evenOdd([1, 7, 8, 9, "Hello", 5, 0, 4])
 // let fxn = evenOdd([1, 7, 8, 9, 0, 5, 0, 4])
 
