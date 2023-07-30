@@ -3,6 +3,7 @@ function prime(number){
     if (typeof(number) != "number"){
         return["Invalid Data Type"]
     }
+    
     for (i=2; i<number/2; i++){
         if (number%i==0){
             return ["It is not a prime number."]
