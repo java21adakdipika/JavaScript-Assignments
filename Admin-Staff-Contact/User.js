@@ -260,6 +260,7 @@ let adm1 = User.newAdmin("Dipika", "Adak", "F")
 
 let user1 = adm1.newUser("Siddharth", "Adak", "M")
 let user2 = adm1.newUser("Vedika", "Mishra", "F")
+let user3 = adm1.newUser("Priya", "Agarwal", "F")
 // console.log(adm1);
 // console.log(adduser1);
 console.log(adm1.getAllUsers());
@@ -277,8 +278,8 @@ console.log(user1.newContact("Archana", "USD"));
 console.log(user1.newContact("Shivnath", "IND"));
 
 console.log("All Users: ", user1.readContacts());
-console.log("All Users: ", user1.deleteContact(2));
-console.log("All Users: ", user1.readContacts());
+console.log("Delete Contact: ", user1.deleteContact(2));
+console.log("All Users after Deleting: ", user1.readContacts());
 
 
 console.log("_____________________________");
@@ -287,10 +288,14 @@ console.log("INdex 1 info: ", user1.newContactInfo("1", "number", "345534654"));
 console.log("INdex 1 info: ", user1.newContactInfo("1", "role", "developer"));
 
 console.log("All info:", user1.getAllInfo(1));
-console.log(user1.updateContactInfo(1, 0, "infoValue", "Dipali"));
+console.log(user1.updateContactInfo(1, 2, "infoValue", "Dipali"));
 
 
-console.log("Deleted --> ", user1.deleteContactInfo(1, 0));
+console.log("Deleted --> ", user1.deleteContactInfo(1, 2));
 console.log("All info:",user1.getAllInfo(1));
 
-console.log("info by Id", user1.getContactInfoByID(1, 2));
+console.log("info by Id", user1.getContactInfoByID(1, 2)); // info not found --> info by id= 2 deleted at line 294
+console.log("info by Id", user1.getContactInfoByID(1, 1));
+
+console.log("------------------------------");
+console.log(adm1.getAllUsers());

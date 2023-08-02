@@ -3,7 +3,7 @@ const ContactInfo = require("./ContactInfo")
 class Contact {
     static contactID = 0
     constructor(fullname, country){
-        this.ID = Contact.contactID++
+        this.ID = ++Contact.contactID
         this.fullname = fullname
         this.country = country
         this.contactInfo = []

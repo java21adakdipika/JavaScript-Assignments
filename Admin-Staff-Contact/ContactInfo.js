@@ -2,7 +2,7 @@
 class ContactInfo {
     static infoID = 0
     constructor(infoType, infoValue){
-        this.ID = ContactInfo.infoID++
+        this.ID = ++ContactInfo.infoID
         this.infoType = infoType
         this.infoValue = infoValue
     }
