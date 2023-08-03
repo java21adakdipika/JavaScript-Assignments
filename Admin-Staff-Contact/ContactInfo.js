@@ -1,3 +1,4 @@
+const ValidationError = require("./Error/ValidationError")
 
 class ContactInfo {
     static infoID = 0
@@ -8,22 +9,27 @@ class ContactInfo {
     }
 
     updateContactInfo(parameter, newValue){
-        switch (parameter){
-            case "infoType":
-                if (typeof(newValue) != 'string'){
-                    return "Invalid Type"
-                }
-                this.infoType = newValue
-                return this
-            case "infoValue":
-                if (typeof(newValue) != 'string'){
-                    return "Invalid Type"
-                }
-                this.infoValue = newValue
-                return this
-            default:
-                return "Invalid Parameter"
+        try{
+            switch (parameter){
+                case "infoType":
+                    if (typeof(newValue) != 'string'){
+                        throw new ValidationError("Invalid Type")
+                    }
+                    this.infoType = newValue
+                    return this
+                case "infoValue":
+                    if (typeof(newValue) != 'string'){
+                        throw new ValidationError("Invalid Type")
+                    }
+                    this.infoValue = newValue
+                    return this
+                default:
+                    throw new ValidationError("Invalid Parameter")
+            }
+        } catch (e){
+            throw e;
         }
+        
     }
 
     
