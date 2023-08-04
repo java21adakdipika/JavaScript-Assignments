@@ -92,6 +92,9 @@ class User {
             if (!this.isAdmin){
                 throw new UnAuthorisedError("Accesible to Administrators Only")
             }
+            if (typeof(ID) != 'number'){
+                throw new ValidationError("ID should be number")
+            }
             let index = this.findUser(ID)
             // if (!result){
             //     return "User Not Found"
@@ -124,6 +127,9 @@ class User {
         try {
             if (!this.isAdmin){
                 throw new UnAuthorisedError("Accesible to Administrators Only")
+            }
+            if (typeof(ID) != 'number'){
+                throw new ValidationError("ID should be number")
             }
             let index = this.findUser(ID)
             // if (!result){
@@ -192,7 +198,9 @@ class User {
             if (this.isAdmin){
                 throw new Error("Only Users can access contacts")
             }
-    
+            if (typeof(ID) != 'number'){
+                throw new ValidationError("ID should be number")
+            }
             let index = this.findContact(ID)
     
             // if (!result){
@@ -213,6 +221,9 @@ class User {
             if (this.isAdmin){
                 throw new UnAuthorisedError("Only Users can access contacts")
             }
+            if (typeof(ID) != 'number'){
+                throw new ValidationError("ID should be number")
+            }
             let index = this.findContact(ID)
             // if (!result){
             //     return "Contact Not Found"
@@ -232,8 +243,8 @@ class User {
                 throw new UnAuthorisedError("Only Users can access Contacts-Info")
             }
 
-            if (typeof ID != 'number'){
-                throw new Error("Provide ID in number")
+            if (typeof(ID) != 'number'){
+                throw new ValidationError("ID should be number")
             }
 
             let index = this.findContact(ID)
@@ -255,6 +266,9 @@ class User {
             if (this.isAdmin){
                 throw new UnAuthorisedError("Only Users can access Contacts-Info")
             }
+            if (typeof(ID) != 'number'){
+                throw new ValidationError("ID should be number")
+            }
     
             let index = this.findContact(ID)
             // if (!result){
@@ -275,7 +289,7 @@ class User {
             }
 
             if (typeof ID != 'number' || typeof infoID != 'number'){
-                throw new Error("Provide both the IDs in number")
+                throw new ValidationError("Provide both the IDs in number")
             }
     
             let index = this.findContact(ID)
@@ -297,6 +311,9 @@ class User {
             if (this.isAdmin){
                 throw new Error("Only Users can access Contacts-Info")
             }
+            if (typeof ID != 'number' || typeof infoID != 'number'){
+                throw new ValidationError("Provide both the IDs in number")
+            }
     
             let index = this.findContact(ID)
             // if (!result){
@@ -315,6 +332,9 @@ class User {
             if (!this.isAdmin){
                 throw new UnAuthorisedError("Accessible to Administrators Only")
             }
+            if (typeof userID != 'number'){
+                throw new ValidationError("Provide UserID in number")
+            }
             let index = this.findUser(userID)
             // if (!result){
             //     return "User Not Found"
@@ -329,6 +349,9 @@ class User {
         try {
             if (this.isAdmin){
                 throw new UnAuthorisedError("Only Users can access contacts")
+            }
+            if (typeof contactID != 'number'){
+                throw new ValidationError("Provide Contact-ID in number")
             }
     
             let index = this.findContact(contactID)
@@ -348,7 +371,9 @@ class User {
             if (this.isAdmin){
                 throw new UnAuthorisedError("Only Users can access Contacts-Info")
             }
-    
+            if (typeof contactID != 'number' || typeof infoID != 'number'){
+                throw new ValidationError("Provide both the IDs in number")
+            }
             let index = this.findContact(contactID)
             // if (!result){
             //     return "Contact Not Found"
@@ -363,6 +388,7 @@ class User {
 }
 
 let adm1 = User.newAdmin("Dipika", "Adak", "F")
+// let adm2 = User.newAdmin("Sidd", "Adak", "F")
 // console.log(adm1);
 
 let user1 = adm1.newUser("Siddharth", "Adak", "M") 
@@ -370,6 +396,7 @@ let user1 = adm1.newUser("Siddharth", "Adak", "M")
 
 // console.log(user1);
 let user2 = adm1.newUser("Priya", "Agarwal", "F")
+// let user21 = adm2.newUser("Arun", "Agarwal", "M")
 let user3 = adm1.newUser("Vedika", "Mishra", "QWERT")  // Error Handling
 console.log("All Users: ", adm1.getAllUsers());
 
