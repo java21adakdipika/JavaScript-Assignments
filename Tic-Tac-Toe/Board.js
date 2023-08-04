@@ -59,6 +59,9 @@ class Board{
         console.log(this.cells[0].mark + " " + this.cells[1].mark + " " + this.cells[2].mark )
         console.log(this.cells[3].mark + " " + this.cells[4].mark + " " + this.cells[5].mark )
         console.log(this.cells[6].mark + " " + this.cells[7].mark + " " + this.cells[8].mark )
+        // for (let i=0; i<9; i++){
+        //     console.log("Cell: "+ i + " -> Mark: " + this.cells[i].mark);
+        // }
     }
 }
 

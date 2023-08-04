@@ -39,11 +39,14 @@ class Game{
         }
 
         if (this.turn%2==0){
+            // currentPlayer = this.players[0]
             this.board.cells[cellNumber].mark = 'X'
         } else {
+            // currentPlayer = this.players[1]
             this.board.cells[cellNumber].mark = 'O'
         }
         this.turn++
+
         this.board.printBoard()
         let [symbol, gameStatus] = this.board.analyseResult()
 

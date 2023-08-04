@@ -1,7 +1,7 @@
 const Game = require("./Game")
 
 
-let g1 = Game.newGame("Dipika", "Siddharth")
+let g1 = Game.newGame("Vedika", "Dipika")
 
 console.log(g1.play(0))
 console.log(g1.play(1))
